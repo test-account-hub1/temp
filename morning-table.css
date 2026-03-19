@@ -1,0 +1,709 @@
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Manrope:wght@600;700;800&display=swap');
+
+/* 컬러/간격 변수 */
+:root {
+  --bg: #f7f2eb;
+  --bg-soft: #fdf9f4;
+  --card: #fffdf9;
+  --text: #31261d;
+  --muted: #726252;
+  --line: #e9dccd;
+  --primary: #9b673d;
+  --primary-deep: #7d502f;
+  --accent: #e5c5a1;
+  --shadow-soft: 0 6px 16px rgba(49, 38, 29, 0.06);
+  --shadow-strong: 0 10px 22px rgba(49, 38, 29, 0.08);
+  --radius: 20px;
+  --max: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: linear-gradient(180deg, #fcf7f1 0%, var(--bg) 26%, var(--bg) 100%);
+  font-family: "Gowun Dodum", "Noto Sans KR", sans-serif;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.container {
+  width: min(var(--max), 92%);
+  margin: 0 auto;
+}
+
+/* 스티키 헤더 + 앵커 메뉴 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 249, 241, 0.95);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 6px 14px rgba(49, 38, 29, 0.05);
+}
+
+.header-inner {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-deep);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-mark {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbf1e4;
+  border: 1px solid #e6ceb1;
+}
+
+.logo-mark svg {
+  width: 36px;
+  height: 36px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-text strong {
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 1.16rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  justify-content: flex-end;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.93rem;
+  padding: 8px 13px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all 0.22s ease;
+}
+
+.nav a:hover {
+  color: var(--primary-deep);
+  background: #fff7ee;
+  border-color: #ead6bf;
+}
+
+section {
+  padding: 84px 0;
+}
+
+.section-title {
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.65rem, 1.15rem + 1.8vw, 2.3rem);
+  margin: 0 0 10px;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.section-subtitle {
+  margin: 0 0 30px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* 히어로 섹션 */
+.hero {
+  padding-top: 100px;
+}
+
+.hero-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fffdf9 0%, #fbf2e6 100%);
+  border: 1px solid var(--line);
+  border-top: 4px solid #c18956;
+  border-radius: var(--radius);
+  padding: clamp(28px, 3.8vw, 52px);
+  box-shadow: var(--shadow-strong);
+  animation: fade-up 0.8s ease 0.05s both;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: -120% auto auto -35%;
+  width: 55%;
+  height: 320%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: rotate(16deg);
+  animation: hero-shine 6.8s ease-in-out 1.1s infinite;
+  pointer-events: none;
+}
+
+.hero-kicker {
+  margin: 0 0 12px;
+  color: #8b6646;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: fade-up 0.55s ease 0.18s both;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 1.4rem + 2.8vw, 3.2rem);
+  line-height: 1.2;
+  color: var(--primary-deep);
+  letter-spacing: 0.01em;
+  animation: fade-up 0.6s ease 0.26s both;
+}
+
+.hero-card > p:not(.hero-kicker) {
+  margin: 18px 0 30px;
+  color: #5f4f42;
+  font-size: clamp(1rem, 0.95rem + 0.45vw, 1.2rem);
+  animation: fade-up 0.65s ease 0.35s both;
+}
+
+.hero .hero-kicker {
+  margin: 0 0 12px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  animation: fade-up 0.6s ease 0.45s both;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  animation: fade-up 0.65s ease 0.58s both;
+}
+
+.hero-stats article {
+  border: 1px solid #ead5be;
+  border-radius: 14px;
+  background: rgba(255, 251, 246, 0.9);
+  padding: 10px 8px;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-stats article:hover {
+  transform: translateY(-3px);
+  border-color: #d9b592;
+  box-shadow: 0 8px 16px rgba(49, 38, 29, 0.1);
+}
+
+.hero-stats strong {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #7a4b29;
+}
+
+.hero-stats span {
+  display: block;
+  font-size: 0.78rem;
+  color: #7a6655;
+  margin-top: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(49, 38, 29, 0.12);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-deep);
+}
+
+.btn-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(255, 248, 239, 0.85);
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: var(--shadow-soft);
+  animation: fade-up 0.8s ease 0.22s both;
+}
+
+.hero-carousel::before,
+.hero-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, #fffdf9 8%, rgba(255, 253, 249, 0));
+}
+
+.hero-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, #fffdf9 8%, rgba(255, 253, 249, 0));
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: hero-carousel-scroll 32s linear infinite;
+}
+
+.hero-carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.carousel-item {
+  margin: 0;
+  flex: 0 0 clamp(230px, 34vw, 360px);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #ead7c2;
+  background: #f6eade;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: clamp(200px, 28vw, 280px);
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* 공통 카드 UI */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+  border-color: #e0c8ae;
+}
+
+.menu-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-media {
+  margin-bottom: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #ebd8c4;
+  aspect-ratio: 4 / 3;
+  background: #f7ebde;
+}
+
+.menu-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.45s ease;
+}
+
+.menu-card:hover .menu-media img {
+  transform: scale(1.06);
+}
+
+.menu-card .menu-desc {
+  min-height: 4.2em;
+}
+
+.menu-card .price {
+  margin-top: auto;
+}
+
+.space-card {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.space-media {
+  margin-bottom: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #ebd8c4;
+  aspect-ratio: 4 / 3;
+  background: #f7ebde;
+}
+
+.space-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.45s ease;
+}
+
+.space-card:hover .space-media img {
+  transform: scale(1.06);
+}
+
+.detail-box {
+  margin: 0 0 14px;
+  border-top: 1px dashed #e5d4c2;
+  padding-top: 10px;
+}
+
+.detail-box summary {
+  cursor: pointer;
+  list-style: none;
+  color: #805130;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-box summary::-webkit-details-marker {
+  display: none;
+}
+
+.detail-box summary::after {
+  content: "+";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.detail-box[open] summary::after {
+  content: "-";
+}
+
+.detail-box p {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #835331;
+  background: #fbead7;
+  border: 1px solid #f0d4b5;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+}
+
+.menu-name {
+  margin: 0 0 10px;
+  font-family: "Gowun Dodum", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.menu-desc {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  min-height: 3.1em;
+}
+
+.price {
+  margin: 0;
+  font-weight: 700;
+  color: #734928;
+  font-size: 1.08rem;
+}
+
+.split {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.about-media {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ead7c2;
+  background: #f7ebde;
+  aspect-ratio: 16 / 9;
+}
+
+.about-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.45s ease;
+}
+
+.card:hover .about-media img {
+  transform: scale(1.04);
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.list li + li {
+  margin-top: 8px;
+}
+
+/* 운영 정보 카드 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.info-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.06rem;
+  color: #5a3c25;
+}
+
+.info-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* 예약 유도 섹션 */
+.cta {
+  background: var(--card);
+  border: 1px solid #e3c8aa;
+  border-radius: calc(var(--radius) + 6px);
+  padding: clamp(28px, 4vw, 48px);
+  text-align: center;
+}
+
+.cta p {
+  margin: 0 0 20px;
+  color: #5f4c3c;
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.15rem);
+}
+
+footer {
+  padding: 28px 0 40px;
+  text-align: center;
+  color: #8a7563;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-shine {
+  0%,
+  78%,
+  100% {
+    transform: translateX(0) rotate(16deg);
+    opacity: 0;
+  }
+  82% {
+    opacity: 0.35;
+  }
+  90% {
+    transform: translateX(210%) rotate(16deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes hero-carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .hero-wrap,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-item {
+    flex-basis: clamp(210px, 46vw, 300px);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    min-height: auto;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .grid-3,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-item {
+    flex-basis: 84vw;
+  }
+
+  .carousel-item img {
+    height: 220px;
+  }
+
+  section {
+    padding: 66px 0;
+  }
+
+  .hero {
+    padding-top: 84px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card,
+  .hero-kicker,
+  .hero h1,
+  .hero-card > p:not(.hero-kicker),
+  .hero-actions,
+  .hero-stats,
+  .hero-image {
+    animation: none !important;
+  }
+
+  .hero-card::after {
+    animation: none !important;
+    display: none;
+  }
+
+  .carousel-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
