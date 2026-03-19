@@ -39,15 +39,6 @@ https://temp-6pad6emiw-juneseok81-4659s-projects.vercel.app/
 - 주요 브레이크포인트: `980px`, `720px`
 - 모바일에서 카드 레이아웃을 1열로 정리하고 가독성 우선 배치
 - 모션 최소화 환경(`prefers-reduced-motion`) 대응
-
-## 4. 실행 방법
-1. `index.html` 또는 `morning-table.html`을 브라우저에서 열기
-2. `morning-table.css`가 같은 폴더에 있는지 확인
-
-## 5. Vercel 배포 방법
-1. 이 프로젝트를 GitHub 저장소에 push
-2. Vercel에서 `New Project` 클릭
-3. GitHub 저장소를 Import 후 `Deploy`
 4. 배포 완료 URL 접속
 
 ### 배포 준비 상태
